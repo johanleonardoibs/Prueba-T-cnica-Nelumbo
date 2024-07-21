@@ -1,0 +1,38 @@
+<div>
+  <div class="modal_cover">
+    <img ngSrc="https://img.freepik.com/psd-premium/vista-superior-simulacro-telefono-movil_213086-235.jpg?w=1380"
+         alt="modal-cover"
+         fill
+    >
+  </div>
+  <div class="article" nz-flex nzJustify="space-between">
+    <div class="article_image">
+      <img [ngSrc]="article.images[0]" [alt]="article.name" fill>
+    </div>
+    <div class="article_data">
+      <div>
+        <span>{{ article.price | currency }} x 1</span>
+      </div>
+      <h1>{{ article.name }}</h1>
+      <p>color seleccionado: gris</p>
+    </div>
+  </div>
+  <nz-divider></nz-divider>
+  <div nz-flex nzJustify="space-between" class="articles_cart">
+    <span>1 item en tu carrito</span>
+    <span>Subtotal: <strong>{{ article.price | currency }}</strong></span>
+  </div>
+  <nz-divider></nz-divider>
+  <div nz-flex [nzVertical]="true" nzAlign="center" class="credit">
+    <div nz-flex nzJustify="center" nzAlign="center" class="check-icon">
+      <span nz-icon nzType="check"></span>
+    </div>
+    <p>
+      Te llevas este celular por solo <br>
+      <strong>{{ 120 | currency }} p/semana!</strong>
+    </p>
+    <button nz-button nzSize="large" nzType="primary">COMPRAR A CREDITO</button>
+    <nz-divider class="" nzText="o puedes"></nz-divider>
+    <span> Comprar a contado</span>
+  </div>
+</div>

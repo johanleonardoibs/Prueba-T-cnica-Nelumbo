@@ -1,0 +1,103 @@
+@if (article()) {
+  <div class="cellphone_layout">
+    <div class="cellphone_routing">
+      <button nz-button nzType="primary" (click)="goBack()">
+        Volver a resultados
+      </button>
+      <span>Celulares/Marca/Celular</span>
+    </div>
+    <div nz-row nzJustify="space-between" class="cellphone_detail">
+      <app-image-gallery nz-col [nzLg]="7" [images]="article()!.images"></app-image-gallery>
+      <div nz-col [nzLg]="16" class="cellphone_detail-description">
+        <div nz-flex nzWrap="wrap" nzJustify="space-between">
+          <div>
+            <h1>{{ article()?.name }}</h1>
+            <nz-rate [ngModel]="article()?.rate" [nzDisabled]="true"></nz-rate>
+          </div>
+          <div class="cellphone_detail-price">
+            <h2>{{ article()?.price | currency }}</h2>
+            <h3>{{ article()?.oldPrice | currency }}</h3>
+            <img ngSrc="/images/cards.png" alt="cards" width="85" height="30">
+          </div>
+          <div class="w-full cellphone_detail-description">
+            {{ article()?.description }}
+          </div>
+          <div nz-flex nzJustify="end" class="w-full">
+            <div nz-flex nzJustify="space-evenly" class="macropay-protect">
+              <span nz-icon nzType="safety-certificate" nzTheme="outline"></span>
+              <div class="macropay-protect_info">
+                <p>
+                  <strong>Compra segura con MacroPay Protect</strong><br>
+                  <span>Devolucion gratis (30 dias)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full promotion-end">
+            <span class="text-warn"> La promocion vence en 24d 12h:43m </span>
+          </div>
+          <div class="credit-banner w-full">
+            <div nz-flex nzJustify="space-evenly" class="credit-steps w-full">
+              <div nz-flex nzGap="middle">
+                <div>
+                  <span class="credit-steps_circle">1</span>
+                  <span class="credit-steps_text">Aplica a tu credito</span>
+                </div>
+                <div class="separator"></div>
+              </div>
+              <div nz-flex nzGap="middle">
+                <div>
+                  <span class="credit-steps_circle">2</span>
+                  <span class="credit-steps_text">Verifica tu compra</span>
+                </div>
+                <div class="separator"></div>
+              </div>
+              <div>
+                <span class="credit-steps_circle">3</span>
+                <span class="credit-steps_text">Disfruta tu celular</span>
+              </div>
+            </div>
+            <button nz-button nzType="primary" nzSize="large">
+              LO QUIERO A CRÉDITO
+              <span nz-icon nzType="right-circle" nzTheme="fill"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-row nzJustify="space-evenly" class="cellphone_detailed-info">
+      <h2 nz-col nzSpan="24">Informacion Detallada Del Producto</h2>
+      <div nz-col nzSpan="24" nzLg="9">
+        <div nz-flex nzWrap="wrap" nzGap="middle" nzJustify="space-evenly" class="cellphone_images">
+          @for (image of article()?.images; let index = $index; track index) {
+            <div class="cellphone_images-wrapper">
+              <img [ngSrc]="image" alt="image-info:{{index}}}" fill>
+            </div>
+          }
+        </div>
+      </div>
+      <div nz-col nzSpan="24" nzLg="14">
+        <nz-tabset class="cellphone_detailed-info_tabs" >
+          <nz-tab nzTitle="Otras Especificaciones">
+            @for (data of article()?.additionalData; track data.key) {
+              <div nz-flex nzGap="middle">
+                <span class="cellphone_additional-data_key">{{ data.key }}</span>
+                <span class="cellphone_additional-data_value">{{ data.value }}</span>
+              </div>
+            }
+          </nz-tab>
+          <nz-tab nzTitle="Reviews">
+
+          </nz-tab>
+        </nz-tabset>
+        <div class="cellphone_detailed-info_lanita only-block-lg">
+          <img ngSrc="/images/no-hay-chance.png" alt="no hay chance" fill>
+        </div>
+      </div>
+    </div>
+    <div class="cellphones_related">
+      <h2>Productos Relacionados</h2>
+      <app-articles-list [onArticleClick]="onArticleClick.bind(this)" [articles]="popularCellphones()"></app-articles-list>
+    </div>
+  </div>
+}

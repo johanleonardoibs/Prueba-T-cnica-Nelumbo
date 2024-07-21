@@ -1,0 +1,5 @@
+<nz-space [nzAlign]="'center'" nzDirection="horizontal" nzSize="middle" [formGroup]="form()">
+  <input *nzSpaceItem nz-input placeholder="0" type="number" formControlName="min">
+  <span *nzSpaceItem>-</span>
+  <input *nzSpaceItem nz-input placeholder="5,000" type="number" formControlName="max">
+</nz-space>

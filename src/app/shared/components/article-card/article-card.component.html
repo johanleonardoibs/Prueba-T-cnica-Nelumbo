@@ -1,0 +1,25 @@
+<nz-card (click)="onItemClick(article())" [nzBodyStyle]="{'padding': 0}" class="article_card">
+  <div class="article_image">
+    <img [ngSrc]="article().images[0]"
+         [alt]="article().name" fill>
+  </div>
+  <div class="article_info" nz-flex nzJustify="space-between" [nzGap]="'1rem'">
+    <div>
+      <h2>{{ article().name }}</h2>
+      <nz-rate [ngModel]="article().rate" [nzDisabled]="true"></nz-rate>
+      <p>
+        <span>$120 p/semana</span><br>
+        <span>0 $550 p/mes</span>
+      </p>
+    </div>
+    <div>
+      <h3> {{ article().price }} </h3>
+      <h4>{{ article().oldPrice }}</h4>
+      <button nz-button nzType="primary"
+              (click)="$event.stopPropagation(); openArticleDetail(article())"
+      >
+        Lo quiero
+      </button>
+    </div>
+  </div>
+</nz-card>

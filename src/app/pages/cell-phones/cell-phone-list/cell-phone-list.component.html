@@ -1,0 +1,46 @@
+<div class="cellphones_filtered-list" nz-row nzJustify="space-evenly">
+  <div nz-col [nzXs]="24" [nzMd]="8" [nzLg]="6" [nzXXl]="4">
+    <div class="cellphones_sort">
+      <span>
+        Ordenar Por
+        <nz-select [nzBorderless]="true" [ngModel]="'Mejores reviews'">
+          <nz-option nzValue="Menor precio" nzLabel="Menor precio"></nz-option>
+          <nz-option nzValue="Mejores reviews" nzLabel="Mejores reviews"></nz-option>
+        </nz-select>
+      </span>
+    </div>
+    <app-articles-filter [availableFilters]="filters()"
+                         (onFilterChange)="onFilterChange($event)"
+    ></app-articles-filter>
+  </div>
+  <div class="cellphones_list" nz-col [nzXs]="24" [nzMd]="14" [nzLg]="18">
+    <div class="cellphones_search-bar_container w-full">
+      <div class="cellphones_search-bar">
+        <nz-input-group [nzPrefix]="SearchIcon" [nzSuffix]="CategorySelector">
+          <input nz-input nzBorderless="true" type="text" (input)="updateQueryFilter($event)" placeholder="Encuentra el producto que necesitas">
+        </nz-input-group>
+      </div>
+    </div>
+    <app-articles-list [onArticleClick]="onArticleClick.bind(this)" [articles]="cellphones()"></app-articles-list>
+  </div>
+</div>
+<div class="cellphones_carousel">
+  <h2>Ofertas y Promociones</h2>
+  <div class="carousel">
+    <app-custom-carousel [carouselImages]="carouselImages"></app-custom-carousel>
+  </div>
+</div>
+<div class="cellphones_most-sold">
+  <h2>Nuestros Productos Más Vendidos</h2>
+  <app-articles-list [onArticleClick]="onArticleClick.bind(this)" [articles]="popularCellphones()"></app-articles-list>
+</div>
+
+<ng-template #SearchIcon>
+  <span nz-icon nzType="search"></span>
+</ng-template>
+
+<ng-template #CategorySelector>
+  <nz-select nzBorderless="true" [ngModel]="'Todas las categorias'">
+    <nz-option nzValue="Todas las categorias" nzLabel="Todas las categorias"></nz-option>
+  </nz-select>
+</ng-template>

@@ -1,0 +1,14 @@
+<div nz-flex [nzGap]="'0.5rem'" class="w-full">
+  <div class="multiple-images">
+    <div nz-flex nzVertical="true" nzGap="small" >
+      @for (image of images(); let index = $index; track index) {
+        <div class="thumbnail" [ngClass]="{ active: selectedImage === index }" (click)="selectedImage = index">
+          <img [ngSrc]="image" alt="image:{{index}}" fill>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="main-image">
+    <img [ngSrc]="images()[selectedImage]" alt="image:main" fill>
+  </div>
+</div>

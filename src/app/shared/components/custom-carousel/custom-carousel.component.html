@@ -1,0 +1,15 @@
+<div class="carousel_container">
+  <button class="left-button" nz-button nzSize="large" nzShape="circle" (click)="carousel.pre()">
+    <span nz-icon nzType="arrow-left"></span>
+  </button>
+  <button class="right-button" nz-button nzSize="large" nzShape="circle" (click)="carousel.next()">
+    <span nz-icon nzType="arrow-right"></span>
+  </button>
+  <nz-carousel nzEffect="scrollx" #carousel>
+    @for (image of carouselImages(); track image; let index = $index) {
+      <div class="carousel" nz-carousel-content>
+        <img [ngSrc]="image" alt="carousel-image:{{index}}" fill>
+      </div>
+    }
+  </nz-carousel>
+</div>

@@ -1,0 +1,51 @@
+<div class="footer_cover">
+  <img ngSrc="/images/footer_tapa.svg" alt="footer_cover" fill>
+</div>
+<div nz-flex nzAlign="center" nzWrap="wrap" class="footer w-full bg-primary-gradient">
+  <div class="footer_left">
+    <h2 class="text-secondary">Ofertas y Promociones</h2>
+    <h3>No te pierdas <br> nuestras ofertas!</h3>
+    <div class="email-input">
+      <nz-input-group class="footer_mail-input" [nzSuffix]="SendMailIcon">
+        <input nz-input nzBorderless="true" id="footer_mail" placeholder="Tu dirección de correo electrónico" type="email"/>
+      </nz-input-group>
+
+      <ng-template #SendMailIcon>
+        <span class="send-icon" nz-icon nzType="send"></span>
+      </ng-template>
+    </div>
+    <div nz-flex nzJustify="center" nzAlign="center" [nzGap]="'1rem'" class="footer_redirections">
+      <div class="footer_logo">
+        <img ngSrc="/images/logo.svg" alt="logo-footer" fill>
+      </div>
+      <div nz-flex nzJustify="center" nzAlign="center" nzWrap="wrap" [nzGap]="'1rem'">
+        <nz-space nzDirection="vertical">
+          <a href="">Envíos y devoluciones</a>
+          <a href="">Preguntas frecuentes</a>
+        </nz-space>
+        <nz-space nzDirection="vertical">
+          <a href="">Aviso de privacidad</a>
+          <a href="">Términos y condiciones</a>
+        </nz-space>
+      </div>
+    </div>
+  </div>
+  <div nz-flex nzJustify="center" nzAlign="center" nzWrap="wrap" [nzGap]="'3rem'" class="footer_right">
+    <div class="footer_happy-face">
+      <img ngSrc="/images/happy_face.svg" alt="happy_face" fill>
+    </div>
+    <div>
+      <h3>Conversemos!</h3>
+      <p>Loren ipsum dolor sit amet.</p>
+      <div class="social-media">
+        <a href="#"><img ngSrc="/images/icons/facebook-icon.png" alt="Facebook" fill></a>
+        <a href="#"><img ngSrc="/images/icons/instagram_icon.png" alt="Instagram" fill></a>
+        <a href="#"><img ngSrc="/images/icons/linkedin-icon.png" alt="LinkedIn" fill></a>
+        <a href="#"><img ngSrc="/images/icons/whatsapp-icon.png" alt="WhatsApp" fill></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="copyright">
+  <span>Todos los derechos reservados &#64; Macropay 2022</span>
+</div>

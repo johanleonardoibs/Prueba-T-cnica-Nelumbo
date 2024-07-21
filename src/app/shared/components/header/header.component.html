@@ -1,0 +1,28 @@
+<nz-page-header [nzBackIcon]="icon">
+  <nz-page-header-extra>
+    <button nz-button nzType="primary" nzShape="round" nzSize="large">Crea tu cuenta</button>
+    <button nz-button nzType="text" nzShape="round" nzSize="large">Iniciar sesion</button>
+    <button nz-button nzType="primary" nzShape="circle">
+      <span nz-icon nzType="shopping-cart" nzTheme="outline"></span>
+    </button>
+    <div class="credit-badge inline-block-lg">
+      <span>COMPRA A <strong>CREDITO</strong></span>
+    </div>
+  </nz-page-header-extra>
+</nz-page-header>
+
+<ng-template #icon>
+  <img ngSrc="/images/logo.svg" alt="logo" height="35" width="161">
+</ng-template>
+
+<div class="header-menu">
+  <ul nz-menu nzMode="horizontal">
+    <li nz-menu-item>Home</li>
+    <li nz-menu-item>Celulares</li>
+    <li nz-menu-item>Motocicletas</li>
+    <li nz-menu-item>Tus préstamos</li>
+    <li nz-menu-item>Tiendas</li>
+    <li nz-menu-item>Tracking</li>
+    <li nz-menu-item>Club macropay</li>
+  </ul>
+</div>

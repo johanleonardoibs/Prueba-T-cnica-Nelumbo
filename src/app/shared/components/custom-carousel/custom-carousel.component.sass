@@ -1,0 +1,26 @@
+@import "colors"
+
+.carousel_container
+  position: relative
+  height: 100%
+  width: 100%
+
+  button
+    position: absolute
+    z-index: 100
+    width: 70px
+    height: 70px
+    border: none
+    .anticon
+      font-size: 1.7rem
+      color: $border-color
+      filter: blur(0.1)
+  .left-button
+    left: 0
+    transform: translate(-40%, -50%)
+    top: 50%
+
+  .right-button
+    right: 0
+    transform: translate(40%, -50%)
+    top: 50%

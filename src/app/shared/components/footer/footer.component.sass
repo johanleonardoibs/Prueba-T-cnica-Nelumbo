@@ -1,0 +1,103 @@
+@import "colors"
+
+.footer_cover
+  position: relative
+  width: 100vw
+  height: 200px
+  display: none
+
+.footer
+  padding: 1rem 1rem 0 1rem
+  justify-content: center
+  h2
+    font-size: 1rem
+    font-weight: bold
+  h3
+    font-size: 3rem
+    font-weight: bold
+    line-height: 40px
+    color: #333333
+  p
+    font-size: 1.1rem
+
+.footer_mail-input
+  background: transparent
+  border: none
+  border-bottom: 3px solid black
+  box-shadow: none
+  overflow: visible
+  ::placeholder
+    color: #333333
+
+.send-icon
+  color: $secondary-color
+  transform: rotate(-30deg) scale(200%) translateY(-20%)
+
+.footer_redirections
+  margin-top: 3rem
+  a
+    color: black
+    font-weight: 300
+    text-decoration: underline
+
+.footer_logo
+  position: relative
+  background-color: $secondary-color
+  padding: 10px
+  border-radius: 10px
+  width: 200px
+  height: 50px
+  box-sizing: content-box
+
+.copyright
+  background-color: $primary-color-dark
+  display: block
+  width: 100%
+  font-size: 0.7rem
+  padding: 2rem 1rem
+  color: #444
+  text-align: center
+
+.footer_happy-face
+  position: relative
+  height: 140px
+  width: 140px
+  img
+    object-fit: contain
+
+.footer_right
+  padding-top: 2rem
+
+.social-media
+  display: flex
+  gap: 1.5rem
+  a
+    position: relative
+    width: 40px
+    height: 40px
+  img
+    filter: grayscale(1) brightness(0.4) blur(0.4px)
+
+@media screen and (min-width: 650px)
+  .footer
+    padding: 0 2rem
+
+  .copyright
+    padding: 1rem 2rem
+
+@media screen and (min-width: 1024px)
+  .footer_cover
+    display: block
+
+  .footer
+    padding: 0 3rem
+    justify-content: space-around
+
+  .footer_redirections
+    gap: 2rem
+
+  .footer_right
+    padding-top: 0
+
+  .copyright
+    padding: 1rem 3rem

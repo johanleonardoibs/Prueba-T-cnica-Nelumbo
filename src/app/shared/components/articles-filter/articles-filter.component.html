@@ -1,0 +1,21 @@
+<nz-card [formGroup]="formSignal()">
+  @for (filter of availableFilters(); track filter.name; let index = $index) {
+    <p class="filter_name">{{ filter.name }}</p>
+    @switch (filter.type) {
+      @case (FilterType.SELECT) {
+        <div class="filter_select">
+          <nz-checkbox-group [formControlName]="filter.name"></nz-checkbox-group>
+        </div>
+      }
+      @case (FilterType.RANGE) {
+        <app-range-select [formControlName]="filter.name"></app-range-select>
+      }
+      @case (FilterType.RATE) {
+        <nz-rate [formControlName]="filter.name"></nz-rate>
+      }
+    }
+    @if (index + 1 < availableFilters().length) {
+      <nz-divider></nz-divider>
+    }
+  }
+</nz-card>

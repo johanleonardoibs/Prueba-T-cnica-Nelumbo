@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+@import "assets/styles/colors"
+
+*
+  font-family:  "Roboto", sans-serif
+  margin: 0
+  padding: 0
+
+body
+  background-color: $base-color
+  overflow-x: hidden
+
+// Colors
+
+.bg-primary
+  background-color: $primary-color
+
+.bg-primary-gradient
+  background: $primary-gradient
+
+.bg-secondary
+  background: $secondary-color
+
+.bg-warn
+  background-color: $warn-color
+
+.text-primary
+  color: $primary-color
+
+.text-secondary
+  color: $secondary-color
+
+.text-warn
+  color: $warn-color
+
+// FlexLayout
+
+.flex
+  display: flex
+
+.wrap
+  flex-wrap: wrap
+
+.column
+  flex-direction: column
+
+.justify-center
+  justify-content: center
+
+.justify-between
+  justify-content: space-between
+
+.justify-around
+  justify-content: space-around
+
+.align-center
+  align-items: center
+
+// Sizing
+
+.w-full
+  width: 100%
+
+.gap-1
+  gap: 1rem
+
+// MediaQueries
+
+.inline-block-lg
+  display: none
+
+.only-block-lg
+  display: none
+
+@media screen and (min-width: 1024px)
+  .inline-block-lg
+    display: inline-block
+
+  .only-block-lg
+    display: block
+
+// ScrollBar
+
+::-webkit-scrollbar
+  display: none

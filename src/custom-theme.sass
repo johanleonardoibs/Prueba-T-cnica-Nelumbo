@@ -1,0 +1,132 @@
+@import "colors"
+@import "../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css"
+
+// Buttons
+
+.ant-btn-round
+  border-radius: 10px
+  .ant-btn-lg
+    border-radius: 10px
+
+.ant-btn-lg
+  height: 3em
+
+.ant-btn-round.ant-btn-lg
+  height: 4em
+  border-radius: 10px
+
+.ant-btn-primary
+  background: $primary-color
+  color: $secondary-color
+  border-color: transparent
+  border-radius: 10px
+
+.ant-btn-primary.ant-btn-circle.ant-btn-icon-only
+  background-color: #fff
+
+.ant-btn-icon-only > *
+  font-size: 1.4em
+
+.ant-btn-primary.ant-btn:focus, .ant-btn-primary.ant-btn:hover
+  background: $secondary-color
+  color: $primary-color
+
+// Header Styles
+
+.ant-page-header-ghost
+  background-color: $secondary-color
+
+// Menu Styles
+
+.ant-menu-item
+  font-weight: 500
+  &:hover
+    border-bottom: none
+
+.ant-menu-item-active
+  font-weight: 600
+  color: $secondary-color
+  &::after
+    border-color: transparent
+
+.ant-menu-horizontal
+  border: none
+
+@mixin custom-selector
+  border-color: transparent
+  width: 15px
+  content: ""
+  background: $primary-color
+  left: 50%
+  transform: translateX(-50%)
+  position: absolute
+  bottom: 10px
+
+.ant-menu-horizontal:not(.ant-menu-dark)
+  .ant-menu-item
+    &:hover
+      &::after
+        @include custom-selector
+
+  .ant-menu-item-selected
+    &::after
+      @include custom-selector
+
+// Input Styles
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover
+  border-color: $secondary-color
+
+// Card Styles
+
+.ant-card
+  box-shadow: 1px 5px 5px #00000040
+
+// Carousel Styles
+
+.ant-carousel
+  overflow: initial
+  .slick-slide img
+    border-radius: 20px
+
+$slick-size: 16px
+
+.ant-carousel .slick-dots
+  margin-top: 1rem
+  position: initial
+  li
+    width: $slick-size
+    height: $slick-size
+    border-radius: 50%
+    border: 2px solid $border-color
+    cursor: pointer
+    button
+      background-color: transparent
+      transition: none
+  li.slick-active
+    width: $slick-size
+    button
+      background-color: $border-color
+      width: $slick-size - 2
+      height: $slick-size - 2
+      border: none
+      border-radius: 50%
+      margin: 1px
+
+// Modal Styles
+
+.no-footer-border
+  .ant-modal-footer
+    border: none
+
+// Tabs Styles
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn
+  color: #444
+  font-weight: bold
+
+.ant-tabs-ink-bar
+ background: $secondary-color
+
+.ant-tabs-tab:hover
+  color: $secondary-color
