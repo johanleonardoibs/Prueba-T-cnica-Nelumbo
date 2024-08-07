@@ -10,5 +10,5 @@ import {NzMessageModule} from "ng-zorro-antd/message";
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  title = 'PruebaTecnica';
+  title = 'Prueba Técnica';
 }

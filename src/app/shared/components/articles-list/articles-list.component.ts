@@ -20,4 +20,6 @@ import {Article} from "../../../core/models/article.model";
 export class ArticlesListComponent {
   articles: InputSignal<Article[]> = input.required<Article[]>();
   onArticleClick: InputSignal<Function> = input<Function>(() => {})
+  lgSize: InputSignal<number> = input<number>(7)
+  xsSize: InputSignal<number> = input<number>(11)
 }

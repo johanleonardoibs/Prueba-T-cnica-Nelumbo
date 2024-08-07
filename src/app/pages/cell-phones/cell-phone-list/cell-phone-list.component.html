@@ -1,5 +1,5 @@
 <div class="cellphones_filtered-list" nz-row nzJustify="space-evenly">
-  <div nz-col [nzXs]="24" [nzMd]="8" [nzLg]="6" [nzXXl]="4">
+  <div nz-col [nzXs]="24" [nzMd]="8" [nzLg]="5">
     <div class="cellphones_sort">
       <span>
         Ordenar Por
@@ -17,7 +17,10 @@
     <div class="cellphones_search-bar_container w-full">
       <div class="cellphones_search-bar">
         <nz-input-group [nzPrefix]="SearchIcon" [nzSuffix]="CategorySelector">
-          <input nz-input nzBorderless="true" type="text" (input)="updateQueryFilter($event)" placeholder="Encuentra el producto que necesitas">
+          <input nz-input nzBorderless="true" type="text"
+                 (input)="updateQueryFilter($event)"
+                 placeholder="Encuentra el producto que necesitas"
+          >
         </nz-input-group>
       </div>
     </div>
@@ -32,7 +35,10 @@
 </div>
 <div class="cellphones_most-sold">
   <h2>Nuestros Productos Más Vendidos</h2>
-  <app-articles-list [onArticleClick]="onArticleClick.bind(this)" [articles]="popularCellphones()"></app-articles-list>
+  <app-articles-list [onArticleClick]="onArticleClick.bind(this)"
+                     [articles]="popularCellphones()"
+                     [lgSize]="5"
+  ></app-articles-list>
 </div>
 
 <ng-template #SearchIcon>
@@ -40,7 +46,7 @@
 </ng-template>
 
 <ng-template #CategorySelector>
-  <nz-select nzBorderless="true" [ngModel]="'Todas las categorias'">
-    <nz-option nzValue="Todas las categorias" nzLabel="Todas las categorias"></nz-option>
+  <nz-select nzBorderless="true" [ngModel]="'Todas las categorías'">
+    <nz-option nzValue="Todas las categorías" nzLabel="Todas las categorías"></nz-option>
   </nz-select>
 </ng-template>

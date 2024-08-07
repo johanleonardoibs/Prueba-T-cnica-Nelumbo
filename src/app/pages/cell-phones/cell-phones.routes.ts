@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import {CellPhonesComponent} from "./cell-phones.component";
 
 export const cellPhonesRoutes: Routes = [
   {

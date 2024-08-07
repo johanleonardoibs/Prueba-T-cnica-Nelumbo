@@ -7,8 +7,11 @@
       <span>Celulares/Marca/Celular</span>
     </div>
     <div nz-row nzJustify="space-between" class="cellphone_detail">
-      <app-image-gallery nz-col [nzLg]="7" [images]="article()!.images"></app-image-gallery>
-      <div nz-col [nzLg]="16" class="cellphone_detail-description">
+      <div nz-col [nzLg]="9" class="cellphone_gallery">
+        <app-followed class="article_image-heart" [ngModel]="article()?.followed"></app-followed>
+        <app-image-gallery [images]="article()!.images"></app-image-gallery>
+      </div>
+      <div nz-col [nzLg]="14" class="cellphone_detail-description">
         <div nz-flex nzWrap="wrap" nzJustify="space-between">
           <div>
             <h1>{{ article()?.name }}</h1>
@@ -57,7 +60,7 @@
                 <span class="credit-steps_text">Disfruta tu celular</span>
               </div>
             </div>
-            <button nz-button nzType="primary" nzSize="large">
+            <button nz-button nzType="primary" nzSize="large" nzShape="round">
               LO QUIERO A CRÉDITO
               <span nz-icon nzType="right-circle" nzTheme="fill"></span>
             </button>
@@ -66,9 +69,9 @@
       </div>
     </div>
     <div nz-row nzJustify="space-evenly" class="cellphone_detailed-info">
-      <h2 nz-col nzSpan="24">Informacion Detallada Del Producto</h2>
+      <h2 nz-col nzSpan="24">Información Detallada Del Producto</h2>
       <div nz-col nzSpan="24" nzLg="9">
-        <div nz-flex nzWrap="wrap" nzGap="middle" nzJustify="space-evenly" class="cellphone_images">
+        <div nz-flex nzWrap="wrap" nzGap="small" nzJustify="space-evenly" class="cellphone_images">
           @for (image of article()?.images; let index = $index; track index) {
             <div class="cellphone_images-wrapper">
               <img [ngSrc]="image" alt="image-info:{{index}}}" fill>
@@ -86,18 +89,17 @@
               </div>
             }
           </nz-tab>
-          <nz-tab nzTitle="Reviews">
-
-          </nz-tab>
+          <nz-tab nzTitle="Reviews"></nz-tab>
         </nz-tabset>
-        <div class="cellphone_detailed-info_lanita only-block-lg">
-          <img ngSrc="/images/no-hay-chance.png" alt="no hay chance" fill>
-        </div>
       </div>
     </div>
     <div class="cellphones_related">
       <h2>Productos Relacionados</h2>
-      <app-articles-list [onArticleClick]="onArticleClick.bind(this)" [articles]="popularCellphones()"></app-articles-list>
+      <app-articles-list
+        [onArticleClick]="onArticleClick.bind(this)"
+        [articles]="popularCellphones()"
+        [lgSize]="5"
+      ></app-articles-list>
     </div>
   </div>
 }

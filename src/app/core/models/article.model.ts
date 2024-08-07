@@ -7,7 +7,8 @@ export interface Article {
   oldPrice: number
   rate: number,
   additionalData?: ArticleAdditionalData[],
-  images: string[]
+  images: string[],
+  followed: boolean,
 }
 
 export interface ArticleAdditionalData {

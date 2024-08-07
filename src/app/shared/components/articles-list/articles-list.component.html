@@ -1,7 +1,7 @@
 <div nz-row nzJustify="space-evenly">
   @for (article of articles(); track article.id) {
     <app-article-card
-      nz-col [nzMd]="11" [nzLg]="7" [nzXl]="5"
+      nz-col [nzXs]="16" [nzLg]="11" [nzXl]="lgSize()"
       [article]="article"
       class="gutter-row"
       [onArticleClick]="onArticleClick()"

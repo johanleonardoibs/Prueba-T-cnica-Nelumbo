@@ -5,7 +5,7 @@ import {
   getAvailableFilters,
 } from "../../../fixtures/cellphone.fixtures";
 import {Article} from "../../models/article.model";
-import {BehaviorSubject, map, mergeMap, Observable, of, switchMap, take} from "rxjs";
+import {BehaviorSubject, map, Observable, of, switchMap} from "rxjs";
 import {Filter, FilterValues, MultiSelectValue, RangeValue} from "../../models/filter.model";
 import {NzMessageService} from "ng-zorro-antd/message";
 
@@ -24,32 +24,33 @@ export class CellphoneService {
 
   constructor(private nzMessageService: NzMessageService) { }
 
-  // Esto se encargaria de hacer la peticion inicial
+  // Esto se encargaría de hacer la petición inicial
   updateCellphones() {
     this._cellphonesList.next(generateManySmartphones(20));
     this._filteredCellphones.next(this._cellphonesList.value);
   }
 
-  // Esto se encargaria de hacer la peticion inicial
+  // Esto se encargaría de hacer la petición inicial
   updatePopularCellphones() {
-    this.popularSmartphones = of(generateManySmartphones(5));
+    this.popularSmartphones = of(generateManySmartphones(4));
   }
 
-  // Como no hay persistencia de ningun dato, si el elemento a detallar no existe se muestra uno aleatoreo con el fin
+  // Como no hay persistencia de ningún dato, si el elemento a detallar no existe se muestra uno aleatoreo con el fin
   // de mostrar algo en la vista de detalle
   getCellphone(id: string): Observable<Article> {
-    return this.cellphonesList.pipe(
-      switchMap((cellphones: Article[]) => {
-        return this.popularSmartphones.pipe(
-          map((popularCellphones: Article[]) => {
-            return popularCellphones.concat(cellphones)
-          })
-        )
-      }),
-      map((cellphones: Article[]) => {
-        return cellphones.filter((cellphone: Article) => cellphone.id === id)[0] || generateFakeSmartPhone();
-      })
+    const followedItems: any[] = JSON.parse(sessionStorage.getItem('rememberItems') || '[]') || [];
+
+    return of(
+      followedItems.find((item: Article) => item.id === id).item
     );
+  }
+
+  rememberSelectedCellphone(article: Article): void {
+    const followedItems: any[] = JSON.parse(sessionStorage.getItem('rememberItems') || '[]');
+    if (!followedItems.some((item: {id: string, item: Article}): boolean => item.id === article.id)) {
+      followedItems.push({'id': article.id, item: article});
+    }
+    sessionStorage.setItem('rememberItems', JSON.stringify(followedItems));
   }
 
   getAvailableFilters(): Observable<Filter[]> {
@@ -57,10 +58,10 @@ export class CellphoneService {
   }
 
   // Como no existe endpoint al que consultar
-  // Este metodo simula un filtrado para las opciones que hay actualmente
+  // Este método simula un filtrado para las opciones que hay actualmente
   // Solo se muestran los elementos que cumplan todos los filtros, en caso de que no hayan
   // Se deja la lista por defecto
-  // El ideal seria enviar los parametros de filtrado como queryParams.
+  // El ideal sería enviar los parámetros de filtrado como queryParams.
   filterCellPhones(filters: FilterValues): void {
     this._cellphonesList.subscribe((cellphones: Article[]) => {
       const filteredCellphones: Article[] = cellphones.filter((cellphone: Article) => {

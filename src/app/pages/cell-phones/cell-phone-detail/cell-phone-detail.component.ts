@@ -13,6 +13,7 @@ import {NzIconDirective} from "ng-zorro-antd/icon";
 import {NzTabsModule} from "ng-zorro-antd/tabs";
 import {switchMap} from "rxjs";
 import {ArticlesListComponent, ImageGalleryComponent} from "../../../shared/components";
+import {FollowedComponent} from "../../../shared/components/followed/followed.component";
 
 @Component({
   selector: 'app-cell-phone-detail',
@@ -29,7 +30,8 @@ import {ArticlesListComponent, ImageGalleryComponent} from "../../../shared/comp
     NgOptimizedImage,
     NzIconDirective,
     NzTabsModule,
-    ArticlesListComponent
+    ArticlesListComponent,
+    FollowedComponent
   ],
   templateUrl: './cell-phone-detail.component.html',
   styleUrl: './cell-phone-detail.component.sass'
@@ -54,6 +56,7 @@ export class CellPhoneDetailComponent {
   }
 
   onArticleClick(article: Article): void {
+    this.cellphoneService.rememberSelectedCellphone(article)
     this.router.navigate(['cellphones', article.id]).then();
   }
 

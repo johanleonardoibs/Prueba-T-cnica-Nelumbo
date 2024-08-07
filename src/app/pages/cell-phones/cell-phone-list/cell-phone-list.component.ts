@@ -49,7 +49,6 @@ export class CellPhoneListComponent {
     this.filters = toSignal(this.cellphoneService.getAvailableFilters(), { initialValue: [] });
   }
 
-  // Es InputEvent pero por algun motivo no quiere dejarse poner
   updateQueryFilter(event: any): void {
     this.cellphoneService.filterCellPhonesByName(event.data || '');
   }
@@ -59,6 +58,7 @@ export class CellPhoneListComponent {
   }
 
   onArticleClick(article: Article): void {
+    this.cellphoneService.rememberSelectedCellphone(article)
     this.router.navigate(['cellphones', article.id]).then();
   }
 }

@@ -1,8 +1,7 @@
 export enum FilterType {
   SELECT,
   RANGE,
-  RATE,
-  SWITCH
+  RATE
 }
 
 export interface Filter {

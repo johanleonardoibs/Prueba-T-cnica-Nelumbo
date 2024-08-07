@@ -1,7 +1,11 @@
-<nz-card (click)="onItemClick(article())" [nzBodyStyle]="{'padding': 0}" class="article_card">
+<nz-card hoverListener (onHover)="swapMainImage()" (click)="onItemClick(article())" [nzBodyStyle]="{'padding': 0}" class="article_card">
   <div class="article_image">
-    <img [ngSrc]="article().images[0]"
+    <img [ngSrc]="mainImage()"
          [alt]="article().name" fill>
+    <app-followed [ngModel]="article()?.followed" (ngModelChange)="article().followed = !article().followed"
+                  (click)="$event.stopPropagation()"
+                  class="article_image-heart"
+    ></app-followed>
   </div>
   <div class="article_info" nz-flex nzJustify="space-between" [nzGap]="'1rem'">
     <div>
@@ -12,10 +16,10 @@
         <span>0 $550 p/mes</span>
       </p>
     </div>
-    <div>
-      <h3> {{ article().price }} </h3>
-      <h4>{{ article().oldPrice }}</h4>
-      <button nz-button nzType="primary"
+    <div class="article_prices">
+      <h3> {{ article().price | currency: 'MXN': 'symbol-narrow': '4.0' }} </h3>
+      <h4>{{ article().oldPrice | currency: 'MXN': 'symbol-narrow': '4.0' }}</h4>
+      <button nz-button nzType="primary" nzShape="round"
               (click)="$event.stopPropagation(); openArticleDetail(article())"
       >
         Lo quiero
